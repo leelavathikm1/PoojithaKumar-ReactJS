@@ -4,27 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction</title>
-    <!-- External Stylesheet Link -->
-    <link rel="stylesheet" href="./CssBasics.css" />
-    <!-- Internal style sheet -->
     <style>
-      h2 {
+      * {
         color: red;
-        background-color: blue;
       }
-      h6 {
-        font-size: 30px;
+      h1,
+      h2,
+      h3 {
+        background-color: yellow;
+      }
+      #online {
+        width: 500px;
+      }
+      .heads {
+        background-color: aqua;
+        border: 2px solid black;
       }
     </style>
   </head>
   <body>
-    <!-- Inline Styles by using Style attribute-->
-    <h1 style="color: blue; border: 1px solid">My Heading-1</h1>
+    <!-- Ctrl+Backslash  Headings-->
+    <h1>My Heading-1</h1>
     <h2>Second HEading</h2>
     <h3>Third Heading</h3>
     <h4>Fourth Heading</h4>
-    <h5>Fifth Heading</h5>
-    <h6>Sixth Heading</h6>
+    <h5 class="heads">Fifth Heading</h5>
+    <h6 class="heads">Sixth Heading</h6>
 
     <!-- hr Horizontal line  p  Paragraph-->
     <hr />
@@ -42,9 +47,10 @@
     <br />
     <hr />
     <!-- Online image -->
-    <h2>Online image</h2>
+    <h2 class="heads">Online image</h2>
     <img
       src="https://images.pexels.com/photos/863963/pexels-photo-863963.jpeg?cs=srgb&dl=nature-flowers-garden-863963.jpg&fm=jpg"
+      id="online"
       alt=""
     />
     <br /><br />

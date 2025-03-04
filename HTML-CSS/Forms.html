@@ -6,18 +6,49 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="">
-      <label for="">Enter Name</label>
-      <input type="text" />
-      <br /><br />
-      <label for="">Enter Age</label>
-      <input type="number" />
-      <br /><br />
-      <input type="email" />
-      <br /><br />
-      <input type="password" />
-      <input type="date" />
-      <input type="time" />
+    <form style="width: 500px; margin: auto" action="">
+      <fieldset>
+        <legend>Student Details</legend>
+        <label for="">Enter Name</label>
+        <input type="text" disabled />
+        <br /><br />
+        <label for="">Enter Age</label>
+        <input type="number" autofocus />
+        <br /><br />
+        <input type="email" />
+        <br /><br />
+        <input type="password" placeholder="enter password" />
+        <input type="date" required />
+        <input type="time" />
+        <textarea name="" id="" readonly></textarea>
+        <button>Sign In</button>
+        <br /><br />
+        <select name="" id="">
+          <option value="">HP</option>
+          <option value="">Lenovo</option>
+          <option value="">acer</option>
+          <option value="">MI</option>
+        </select>
+      </fieldset>
     </form>
+
+    <br /><br />
+    <hr />
+    <table>
+      <body>
+        <form action="">
+          <tr>
+            <td>
+              <label for="">Enter Name</label>
+              <input type="text" />
+            </td>
+            <td>
+              <label for="">Enter Age</label>
+              <input type="number" />
+            </td>
+          </tr>
+        </form>
+      </body>
+    </table>
   </body>
 </html>

@@ -1,0 +1,43 @@
+div#container {
+  border: 2px solid gray;
+  width: 800px;
+  margin: auto;
+}
+div#headeSection {
+  background: black;
+  color: white;
+  /* height: 50px; */
+  padding: 15px;
+  font-size: 40px;
+  text-align: center;
+  margin: 7px;
+}
+div#subSection {
+  /* border: 2px solid; */
+  margin: 7px;
+  overflow: auto;
+}
+div#districtNames {
+  background: lightcyan;
+  width: 200px;
+  height: 150px;
+  float: left;
+  margin-top: 10px;
+}
+div#description {
+  width: 555px;
+  float: right;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  line-height: 2;
+}
+div#footer {
+  background: black;
+  color: white;
+  padding: 1px;
+  margin: 7px;
+  text-align: center;
+}

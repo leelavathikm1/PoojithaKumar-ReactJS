@@ -1,0 +1,48 @@
+.container {
+  border: 3px solid;
+  width: 700px;
+  margin: auto;
+}
+header {
+  border: 3px solid;
+  margin: 5px;
+  padding: 20px;
+  text-align: center;
+}
+nav {
+  border: 3px solid;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+}
+div#subSection {
+  overflow: auto;
+  /* border: 3px solid; */
+  margin: 5px;
+  text-align: center;
+}
+div#child1 {
+  width: 480px;
+  float: left;
+}
+section {
+  border: 3px solid;
+  height: 100px;
+}
+article {
+  border: 3px solid;
+  height: 100px;
+  margin-top: 10px;
+}
+aside {
+  border: 3px solid;
+  width: 202px;
+  float: right;
+  height: 215px;
+}
+footer {
+  border: 3px solid;
+  text-align: center;
+  margin: 5px;
+  height: 30px;
+}

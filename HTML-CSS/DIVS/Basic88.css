@@ -1,0 +1,63 @@
+div#row1 {
+  background: #333333;
+}
+header {
+  width: 800px;
+  margin: auto;
+  background: black;
+  color: white;
+  overflow: auto;
+}
+div#basic {
+  width: 205px;
+  float: left;
+  margin: 20px;
+}
+#basic h2 {
+  margin: 0;
+}
+#basic p {
+  margin: 0;
+  font-size: 13px;
+}
+nav {
+  width: 525px;
+  float: right;
+  margin: 15px;
+  background: #484c50;
+}
+nav ul li {
+  display: inline;
+  margin-right: 31px;
+}
+div#row2 {
+  width: 800px;
+  margin: auto;
+  margin-top: 15px;
+}
+#row2 img {
+  width: 799px;
+  height: 250px;
+}
+div#row3 {
+  width: 800px;
+  margin: auto;
+  overflow: auto;
+}
+.childs {
+  float: left;
+  width: 259px;
+  margin-right: 11px;
+}
+.child3 {
+  float: right;
+  width: 259px;
+}
+figure {
+  margin-left: 0;
+  width: 250px;
+}
+figure img {
+  width: 260px;
+  height: 150px;
+}

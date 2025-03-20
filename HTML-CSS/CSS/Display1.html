@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h2.hidden {
+        /* visibility: hidden; */
+        display: none;
+      }
+      .showme:hover .hidden {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="showme">
+      hover on me
+      <h2 class="hidden">This is a hidden heading</h2>
+    </div>
+  </body>
+</html>

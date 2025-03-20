@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        counter-reset: section;
+      }
+      h1 {
+        counter-reset: subsection;
+      }
+      h1::before {
+        counter-increment: section;
+        content: "Section - " counter(section) " : ";
+      }
+
+      h3::before {
+        counter-increment: subsection;
+        content: "Sub - " counter(section) " . " counter(section);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>FeontEnd Development Subjects</h1>
+
+    <h3>HTML</h3>
+    <h3>CSS</h3>
+    <h3>Javascript</h3>
+    <h3>React</h3>
+
+    <hr />
+
+    <h1>FeontEnd Development Subjects</h1>
+
+    <h3>HTML</h3>
+    <h3>CSS</h3>
+    <h3>Javascript</h3>
+    <h3>React</h3>
+  </body>
+</html>

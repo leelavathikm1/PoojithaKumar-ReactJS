@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* div p {
+        color: red;
+      } */
+      /* div > p {
+        color: red;
+      } */
+      /* div + p {
+        color: red;
+      } */
+      div ~ p {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Four different types of combinators
+     descendent Selector (space)
+     Child Selector ( > )
+     Adjeacent Selector ( + )
+     General Selector ( ~ )
+      -->
+    <div>
+      <p>Paragraph 1 in the div</p>
+      <p>Paragraph 2 in the div</p>
+    </div>
+    <p>Paragraph 3 in the div</p>
+    <p>Paragraph 4 in the div</p>
+  </body>
+</html>

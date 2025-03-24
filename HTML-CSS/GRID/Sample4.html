@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #grid-container {
+        background-color: cornflowerblue;
+        grid-template-columns: repeat(4, auto);
+        display: grid;
+        padding: 10px;
+        gap: 10px;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+      }
+      .box {
+        border: 2px solid red;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 20px;
+      }
+      /*
+
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-template-rows: 100px 200px 100px;
+
+          grid-template-areas:
+          "head head2 . side"
+          "main main2 . side"
+          "footer footer footer footer";
+          } */
+      .box:nth-child(2) {
+        grid-area: 1/2/4/4;
+      }
+      /* grid-area: <row-start> / <column-start> / <row-end> / <column-end>;
+            row-start: The grid line where the item starts in the row direction.
+          column-start: The grid line where the item starts in the column direction.
+          row-end: The grid line where the item ends in the row direction.
+          column-end: The grid line where the item ends in the column direction. */
+    </style>
+  </head>
+  <body>
+    <div id="grid-container">
+      <header></header>
+      <div class="box">Item Details-1</div>
+      <div class="box">Item Details-2</div>
+      <div class="box">Item Details-3</div>
+      <div class="box">Item Details-4</div>
+      <div class="box">Item Details-5</div>
+      <div class="box">Item Details-6</div>
+      <div class="box">Item Details-7</div>
+      <div class="box">Item Details-8</div>
+      <div class="box">Item Details-9</div>
+      <div class="box">Item Details-10</div>
+      <div class="box">Item Details-11</div>
+    </div>
+  </body>
+</html>

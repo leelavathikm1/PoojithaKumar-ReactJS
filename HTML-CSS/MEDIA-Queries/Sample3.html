@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .column {
+        float: left;
+        width: 25%;
+        padding: 20px;
+      }
+      @media screen and (max-width: 950px) {
+        .column {
+          width: 50%;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="column" style="background-color: aqua">
+        <h2>Column-1</h2>
+        <p>Iam from Column-1</p>
+      </div>
+
+      <div class="column" style="background-color: aqua">
+        <h2>Column-2</h2>
+        <p>Iam from Column-2</p>
+      </div>
+
+      <div class="column" style="background-color: aqua">
+        <h2>Column-3</h2>
+        <p>Iam from Column-3</p>
+      </div>
+
+      <div class="column" style="background-color: aqua">
+        <h2>Column-4</h2>
+        <p>Iam from Column-4</p>
+      </div>
+    </div>
+  </body>
+</html>

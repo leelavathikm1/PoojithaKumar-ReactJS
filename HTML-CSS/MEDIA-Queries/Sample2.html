@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .navbar {
+        background-color: gray;
+      }
+      .navbar a {
+        float: left;
+        text-align: center;
+        text-decoration: none;
+        padding: 14px;
+      }
+      .navbar a:hover {
+        background-color: aqua;
+        color: black;
+      }
+      @media screen and (max-width: 600px) {
+        .navbar a {
+          float: none;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#">Link</a>
+      <a href="#">Link</a>
+      <a href="#">Link</a>
+      <a href="#">Link</a>
+      <a href="#">Link</a>
+    </div>
+  </body>
+</html>

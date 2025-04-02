@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*  */
+    </style>
+  </head>
+  <body>
+    <div id="myDiv"></div>
+    <div></div>
+    <h3 id="demo"></h3>
+    <h2>Iam from Javascript heading-2</h2>
+    <!--  -->
+    <script>
+      //1. Javascript can create the HTML Elements and var key word
+
+      var myHeading = document.createElement("h1");
+      document.body.appendChild(myHeading);
+      myHeading.innerHTML = "Hello From Javascript";
+
+      //   How many ways we can manipulate the html
+
+      document.querySelector("h2").innerHTML = "Iam Changed welcome to JS";
+
+      document.getElementById("demo").innerHTML = "Hi All Welcome to JS";
+
+      document.querySelector("div").setAttribute("class", "demo1");
+
+      document.getElementById("demo").style.color = "red";
+
+      //   How many ways we can display message in bowser
+
+      document.write("Namasthe Javascript");
+      console.log("Welcome to javascript");
+
+      //   Popup Boxes
+      //   alert("Hi From Javascript");
+      //   prompt("Do you want to enter anything");
+      //   confirm("Conform yes or no");
+    </script>
+  </body>
+</html>

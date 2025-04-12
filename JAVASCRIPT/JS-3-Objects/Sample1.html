@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var activa = {
+        name: "HondaActiva",
+        price: 90000,
+        mileage: "20km",
+      };
+      activa.model = 2022; //we can add the property to an object with help of .Notation
+
+      activa["speed"] = "80km per hr"; // array bracket notation
+      console.log(activa);
+
+      document.write(
+        activa.name +
+          "<br>" +
+          activa.price +
+          "<br>" +
+          activa.mileage +
+          "<br>" +
+          activa.model +
+          "<br>" +
+          activa.speed
+      );
+    </script>
+  </body>
+</html>

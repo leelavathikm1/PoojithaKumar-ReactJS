@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="dispStudent"></ul>
+    <script>
+      // For in loop Method of Displaying Object
+
+      var student = {
+        name: "Poojitha",
+        age: 20,
+        city: "Chittoor",
+        State: "AP",
+        Pincode: 570072,
+      };
+      // for(a in objectName){}
+
+      var results = "";
+      for (a in student) {
+        console.log(student[a]);
+        document.write(a + " : " + student[a] + "<br>");
+
+        results = results + a + " : " + student[a] + "<br>";
+      }
+
+      document.getElementById("dispStudent").innerHTML = results;
+      console.log(results);
+    </script>
+  </body>
+</html>

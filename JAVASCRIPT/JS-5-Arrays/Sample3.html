@@ -17,9 +17,30 @@
         "Shyam",
         "Karthik",
       ];
+      // var results = "";
       for (i = 0; i < students.length; i++) {
-        console.log(i);
+        // console.log(i);
+        var myLi = document.createElement("li");
+        myLi.innerHTML = students[i];
+        document.getElementById("myUl").appendChild(myLi);
+
+        // results = results + students[i];
+        // console.log(results);
       }
+      // document.write(results);
+
+      // Find Method
+      // var results = students.find(function (val) {
+      //   console.log(val);
+      //   return val === "Ravi";
+      // });
+
+      // Filter Method
+      var results = students.filter(function (val) {
+        // console.log(val);
+        return val === "Mohan";
+      });
+      console.log(results);
     </script>
   </body>
 </html>

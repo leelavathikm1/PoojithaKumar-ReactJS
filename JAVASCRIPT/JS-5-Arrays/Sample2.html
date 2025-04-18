@@ -6,6 +6,7 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- <ul id="myUl"></ul> -->
     <script>
       var students = [
         {
@@ -21,8 +22,18 @@
           lname: "K",
         },
       ];
+      var results = "";
 
-      document.write(students.length);
+      for (i = 0; i < students.length; i++) {
+        for (a in students[i]) {
+          results = results + students[i][a];
+        }
+      }
+      console.log(results);
+
+      document.write(results + "<br>");
+
+      // document.write(students.length);
     </script>
   </body>
 </html>

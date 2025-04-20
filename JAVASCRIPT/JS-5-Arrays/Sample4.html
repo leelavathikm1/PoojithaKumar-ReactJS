@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var students = [
+        "Ravi",
+        "Ram",
+        "Vijay",
+        "Mohan",
+        "Sundar",
+        "Shyam",
+        "Karthik",
+      ];
+
+      //   students.forEach(function (val) {
+      //     document.write(val + "<br/>");
+      //     return val;
+      //   });
+
+      //   var results = students.map(function (val) {
+      //     return val;
+      //   });
+      //   console.log(results);
+
+      //   var valueIndex = students.findIndex(function (val) {
+      //     return val == "Mohan";
+      //   });
+      //   console.log(valueIndex);
+
+      //   var results = students.includes("Poojitha");
+      //   console.log(results);
+
+      var result = students.some(function (val) {
+        return val.length === 3;
+      });
+
+      console.log(result);
+    </script>
+  </body>
+</html>

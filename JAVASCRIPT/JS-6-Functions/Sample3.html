@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="myHed"></h1>
+    <script>
+      function signIn() {}
+      function signUp() {}
+      function search() {}
+
+      var myAllFunctions = {
+        signIn: function () {},
+        signUp: function () {
+          console.log("Hello signUp");
+        },
+        search: function () {
+          document.write("Iam From Object Function");
+        },
+        enter: function () {
+          console.log("Iam From enter Function");
+          document.getElementById("myHed").innerHTML =
+            "Iam From enter Function";
+        },
+      };
+
+      myAllFunctions.signUp();
+      myAllFunctions.search();
+      myAllFunctions.enter();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="registrationForm">
+      <h2>Registration Form</h2>
+      <form action="#" method="POST">
+        <div class="formGroup">
+          <label for="name">Full Name</label>
+          <input type="text" class="myFullName" />
+        </div>
+
+        <button type="button" class="submit-btn" onclick="reisterUser()">
+          Register
+        </button>
+      </form>
+
+      <script>
+        function reisterUser() {
+          //   var fullName = document.getElementById("name").value;
+          //   console.log(fullName);
+
+          //   var fullName = document.getElementsByClassName("myFullName")[0].value;
+          //   console.log(fullName);
+
+          //   var fullName = document.getElementsByTagName("input")[0].value;
+          //   console.log(fullName);
+
+          //   var fullName = document.querySelector("input").value;
+          //   console.log(fullName);
+
+          var fullName = document.querySelectorAll("input")[0].value;
+          console.log(fullName);
+        }
+      </script>
+    </div>
+  </body>
+</html>

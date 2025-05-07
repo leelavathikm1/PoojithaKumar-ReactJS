@@ -81,8 +81,23 @@
           editTd.appendChild(editBtn);
           myTr.appendChild(editTd);
 
+          var deleteTd = document.createElement("td");
+          var deleteBtn = document.createElement("button");
+          deleteBtn.setAttribute("class", "delete-btn");
+          deleteBtn.setAttribute("onclick", "deleteUser(" + index + ")");
+          deleteBtn.innerHTML = "Delete";
+          deleteTd.appendChild(deleteBtn);
+          myTr.appendChild(deleteTd);
+
           document.querySelector("tbody").appendChild(myTr);
         });
+      }
+      displayUserInTable();
+
+      function deleteUser(i) {
+        console.log("delete User called" + i);
+        allUsers.splice(i, 1);
+        displayUserInTable();
       }
 
       function editUser(i) {

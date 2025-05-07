@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <img src="" alt="" /> -->
+    <div id="myDiv"></div>
+
+    <script>
+      var imageAddress = [
+        "https://i.pinimg.com/236x/a0/4c/ca/a04cca8f619c561e80a4a6e6db361904.jpg",
+        "https://cdn.pixabay.com/photo/2023/06/28/12/43/flower-8094368_1280.jpg",
+        "https://i.pinimg.com/736x/a4/84/91/a48491caf7607b3cddd4710b3115c0cb.jpg",
+        "https://m.media-amazon.com/images/I/81oWEx1EZEL.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/de/Red_natural_flower.jpg",
+        "https://cdn.pixabay.com/photo/2023/10/16/08/30/autumn-8318691_1280.png",
+      ];
+
+      imageAddress.forEach(function (val) {
+        console.log(val);
+        var myImage = document.createElement("img");
+        myImage.setAttribute("src", val);
+        myImage.setAttribute("width", "200px");
+        document.getElementById("myDiv").appendChild(myImage);
+      });
+    </script>
+  </body>
+</html>

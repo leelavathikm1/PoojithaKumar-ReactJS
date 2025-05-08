@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newsletter Subscription</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Form Column -->
+      <div class="column">
+        <h1>Subscribe to Newsletter</h1>
+        <form>
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            required
+          />
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+
+          <label for="frequency">Subscription Frequency</label>
+          <div>
+            <label
+              ><input type="radio" name="frequency" value="daily" required />
+              Daily</label
+            ><br />
+            <label
+              ><input type="radio" name="frequency" value="weekly" required />
+              Weekly</label
+            ><br />
+            <label
+              ><input type="radio" name="frequency" value="monthly" required />
+              Monthly</label
+            >
+          </div>
+
+          <label>Preferred Topics</label>
+          <div>
+            <label
+              ><input type="checkbox" name="topics" value="tech" />
+              Technology</label
+            ><br />
+            <label
+              ><input type="checkbox" name="topics" value="business" />
+              Business</label
+            ><br />
+            <label
+              ><input type="checkbox" name="topics" value="entertainment" />
+              Entertainment</label
+            >
+          </div>
+
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Table Column -->
+      <div class="column">
+        <h1>Subscribers</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Frequency</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Doe</td>
+              <td>Weekly</td>
+              <td>
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Jane Smith</td>
+              <td>Daily</td>
+              <td>
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <script>
+          document.ge;
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

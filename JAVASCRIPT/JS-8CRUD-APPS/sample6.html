@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Booking</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Form Column -->
+    <div class="column">
+      <h1>Hotel Booking</h1>
+      <form>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="checkin">Check-in Date</label>
+        <input type="date" id="checkin" name="checkin" required>
+
+        <label for="checkout">Check-out Date</label>
+        <input type="date" id="checkout" name="checkout" required>
+
+        <label>Room Type</label>
+        <select id="room" name="room" required>
+          <option value="single">Single</option>
+          <option value="double">Double</option>
+          <option value="suite">Suite</option>
+        </select>
+
+        <label>Additional Amenities</label>
+        <div>
+          <label><input type="checkbox" name="amenities" value="wifi"> WiFi</label><br>
+          <label><input type="checkbox" name="amenities" value="breakfast"> Breakfast</label><br>
+          <label><input type="checkbox" name="amenities" value="parking"> Parking</label>
+        </div>
+
+        <button type="submit">Book Now</button>
+      </form>
+    </div>
+
+    <!-- Table Column -->
+    <div class="column">
+      <h1>Booking Details</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Room Type</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>Double</td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>Suite</td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

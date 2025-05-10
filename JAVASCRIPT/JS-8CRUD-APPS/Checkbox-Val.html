@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="">Subjects</label>
+    <input type="checkbox" name="subject" value="html" />HTML
+    <input type="checkbox" name="subject" value="css" />CSS
+    <input type="checkbox" name="subject" value="javascript" />Javascript
+    <input type="checkbox" name="subject" value="reactjs" />ReactJs
+
+    <button onclick="getScelectedSubject()">Get Selected Subjects</button>
+    <script>
+      var subjects = [];
+
+      function getScelectedSubject() {
+        var allCheckboxes = document.getElementsByName("subject");
+        for (i = 0; i < allCheckboxes.length; i++) {
+          if (allCheckboxes[i].checked == true) {
+            subjects.push(allCheckboxes[i].value);
+          }
+        }
+        console.log(subjects);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: auto;
+        padding: 20px;
+      }
+
+      .container {
+        display: flex;
+        gap: 20px;
+      }
+
+      .column {
+        flex: 1;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin: 10px 0 5px;
+      }
+
+      input,
+      select {
+        width: 95%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        background-color: #28a745;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      button:disabled {
+        background-color: gray;
+        cursor: not-allowed;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f4f4f4;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Student Enrollment System</h2>
+    <div class="container">
+      <div class="column">
+        <h3>Enrollment Form</h3>
+        <form id="enrollmentForm">
+          <label for="id">ID:</label>
+          <input type="text" id="id" required onkeyup="validateForm()" />
+
+          <label for="name">Name:</label>
+          <input type="text" id="name" required onkeyup="validateForm()" />
+
+          <label for="age">Age:</label>
+          <input
+            type="number"
+            id="age"
+            min="1"
+            required
+            onkeyup="validateForm()"
+          />
+
+          <label for="gender">Gender:</label>
+          <select id="gender" required onchange="validateForm()">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label for="coursesEnrolled">Courses Enrolled:</label>
+          <input
+            type="text"
+            id="coursesEnrolled"
+            required
+            onkeyup="validateForm()"
+          />
+
+          <label for="enrollmentDate">Enrollment Date:</label>
+          <input
+            type="date"
+            id="enrollmentDate"
+            required
+            onchange="validateForm()"
+          />
+
+          <button type="button" disabled onclick="addStudent()">Submit</button>
+        </form>
+      </div>
+
+      <div class="column">
+        <h3>Enrolled Students</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Courses</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      var allstudents = JSON.parse(localStorage.getItem("allStudents"));
+
+      function displayStudents() {
+        let tableBody = document.getElementById("studentTableBody");
+        allStudents.forEach((std) => {
+          let row = tableBody.insertRow();
+          Object.values(std).forEach((val) => {
+            var cell = row.insertCell();
+            cell.textContent = val;
+          });
+          let actionCell = row.insertCell();
+        });
+      }
+
+      function validateForm() {
+        let fields = [
+          "id",
+          "name",
+          "age",
+          "gender",
+          "coursesEnrolled",
+          "enrollmentDate",
+        ];
+      }
+    </script>
+  </body>
+</html>

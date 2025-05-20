@@ -141,7 +141,7 @@
     </div>
 
     <script>
-      var allstudents = JSON.parse(localStorage.getItem("allStudents"));
+      var allStudents = JSON.parse(localStorage.getItem("allStudents"));
 
       function displayStudents() {
         let tableBody = document.getElementById("studentTableBody");
@@ -164,7 +164,30 @@
           "coursesEnrolled",
           "enrollmentDate",
         ];
+        let isValid = fields.every(
+          (field) => document.getElementById(field).value.trim() !== ""
+        );
+        document.querySelector("button").disabled = !isValid;
       }
+
+      function addStudent() {
+        let student = {
+          id: document.getElementById("id").value,
+          name: document.getElementById("name").value,
+          age: document.getElementById("age").value,
+          gender: document.getElementById("gender").value,
+          courses: document.getElementById("coursesEnrolled").value,
+          date: document.getElementById("enrollmentDate").value,
+        };
+
+        allStudents.push(student);
+        localStorage.setItem("allStudents", JSON.stringify(allstudents));
+        displayStudents();
+        document.getElementById("validateForm").reset();
+        document.querySelector("button").disabled = true;
+      }
+
+      displayStudents();
     </script>
   </body>
 </html>

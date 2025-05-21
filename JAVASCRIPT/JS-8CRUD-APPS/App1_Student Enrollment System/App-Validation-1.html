@@ -141,17 +141,19 @@
     </div>
 
     <script>
-      var allStudents = JSON.parse(localStorage.getItem("allStudents"));
+      var allStudents = JSON.parse(localStorage.getItem("allStudents")) || [];
 
       function displayStudents() {
         let tableBody = document.getElementById("studentTableBody");
-        allStudents.forEach((std) => {
+        tableBody.innerHTML = "";
+        allStudents.forEach((std, index) => {
           let row = tableBody.insertRow();
           Object.values(std).forEach((val) => {
-            var cell = row.insertCell();
+            let cell = row.insertCell();
             cell.textContent = val;
           });
-          let actionCell = row.insertCell();
+          let actionsCell = row.insertCell();
+          actionsCell.innerHTML = `<button onclick="editStudent(${index})">Edit</button> <button onclick="deleteStudent(${index})">Delete </button>`;
         });
       }
 
@@ -181,10 +183,31 @@
         };
 
         allStudents.push(student);
-        localStorage.setItem("allStudents", JSON.stringify(allstudents));
+        localStorage.setItem("allStudents", JSON.stringify(allStudents));
         displayStudents();
-        document.getElementById("validateForm").reset();
+        document.getElementById("enrollmentForm").reset();
         document.querySelector("button").disabled = true;
+      }
+
+      function editStudent(index) {
+        let student = allStudents[index];
+        id: document.getElementById("id").value = student.id;
+        name: document.getElementById("name").value = student.name;
+        age: document.getElementById("age").value = student.age;
+        gender: document.getElementById("gender").value = student.gender;
+        courses: document.getElementById("coursesEnrolled").value =
+          student.courses;
+        date: document.getElementById("enrollmentDate").value = student.date;
+
+        allStudents.splece(index, 1);
+        localStorage.setItem("allStudents", JSON.stringify(allStudents));
+        displayStudents();
+      }
+
+      function deleteStudent(index) {
+        allStudents.splice(index, 1);
+        localStorage.setItem("allStudents", JSON.stringify(allStudents));
+        displayStudents();
       }
 
       displayStudents();

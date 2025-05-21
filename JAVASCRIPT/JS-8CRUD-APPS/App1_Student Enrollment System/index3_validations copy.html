@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Enrollment System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .form-container, .table-container {
+            width: 48%;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 95%;
+            font-size: 16px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: -8px;
+            margin-bottom: 8px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .edit-btn, .delete-btn {
+            padding: 6px 12px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .edit-btn {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .inline {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Student Enrollment System</h1>
+
+    <div class="container">
+        <!-- Left Column: Form -->
+        <div class="form-container">
+            <h2>Enroll a Student</h2>
+            <input type="text" id="name" placeholder="Student Name">
+            <p class="error" id="nameError"></p>
+
+            <input type="number" id="age" placeholder="Age">
+            <p class="error" id="ageError"></p>
+
+            <p>Select Gender:</p>
+            <div class="inline">
+                <label><input type="radio" name="gender" value="Male"> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+            </div>
+            <p class="error" id="genderError"></p>
+
+            <p>Select Courses:</p>
+            <div class="inline">
+                <label><input type="checkbox" value="Math"> Math</label>
+                <label><input type="checkbox" value="Science"> Science</label>
+                <label><input type="checkbox" value="History"> History</label>
+                <label><input type="checkbox" value="English"> English</label>
+            </div>
+            <p class="error" id="coursesError"></p>
+
+            <p>Batch Details:</p>
+            <select id="batch">
+                <option value="Batch A">Batch A</option>
+                <option value="Batch B">Batch B</option>
+                <option value="Batch C">Batch C</option>
+            </select>
+
+            <p>Academic Year:</p>
+            <select id="academicYear">
+                <option value="2023-2024">2023-2024</option>
+                <option value="2024-2025">2024-2025</option>
+                <option value="2025-2026">2025-2026</option>
+            </select>
+
+            <p>Enrollment Date: <span id="enrollmentDate"></span></p>
+
+            <button onclick="addStudent()">Add Student</button>
+        </div>
+
+        <!-- Right Column: Table -->
+        <div class="table-container">
+            <h2>Enrolled Students</h2>
+            <p>Max Enrollment Limit: 50</p>
+            <p>Current Enrollment Count: <span id="currentEnrollment">0</span></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Courses</th>
+                        <th>Batch</th>
+                        <th>Academic Year</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let students = JSON.parse(localStorage.getItem("students")) || [];
+        document.getElementById("enrollmentDate").innerText = new Date().toLocaleDateString();
+
+        function validateForm(name, age, gender, courses) {
+            let isValid = true;
+
+            document.getElementById("nameError").textContent = name ? "" : "Name is required.";
+            document.getElementById("ageError").textContent = age >= 5 && age <= 100 ? "" : "Age must be between 5-100.";
+            document.getElementById("genderError").textContent = gender ? "" : "Select a gender.";
+            document.getElementById("coursesError").textContent = courses.length ? "" : "Select at least one course.";
+
+            if (!name || age < 5 || age > 100 || !gender || courses.length === 0) {
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function addStudent() {
+            if (students.length >= 50) {
+                alert("Enrollment limit reached!");
+                return;
+            }
+
+            const name = document.getElementById("name").value;
+            const age = parseInt(document.getElementById("age").value);
+            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            const courses = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+
+            if (!validateForm(name, age, gender, courses)) return;
+
+            const student = { id: students.length + 1, name, age, gender, coursesEnrolled: courses };
+            students.push(student);
+            renderStudents();
+        }
+
+        function renderStudents() {
+            document.getElementById("currentEnrollment").innerText = students.length;
+            localStorage.setItem("students", JSON.stringify(students));
+        }
+
+        renderStudents();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Enrollment System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Student Enrollment System</h1>
+
+    <!-- Student Form -->
+    <div class="form-container">
+        <input type="text" id="name" placeholder="Student Name">
+        <input type="number" id="age" placeholder="Age">
+        <input type="text" id="gender" placeholder="Gender">
+        <input type="text" id="coursesEnrolled" placeholder="Courses (comma-separated)">
+        <button onclick="addStudent()">Add Student</button>
+        <button onclick="updateStudent()" id="updateBtn" style="display: none;">Update Student</button>
+    </div>
+
+    <!-- Student List -->
+    <h2>Enrolled Students</h2>
+    <ul id="studentList"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>

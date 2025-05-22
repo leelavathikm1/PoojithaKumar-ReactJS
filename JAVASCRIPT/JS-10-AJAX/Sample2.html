@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="searchField" onkeyup="handleSearch()" />
+    <ul id="userList"></ul>
+    <script>
+      var bounceTimer;
+      function handleSearch() {
+        bounceTimer = setTimeout(function () {
+          var userInput = document.getElementById("searchField").ariaValueMax;
+          getData(userInput);
+        }, 1000);
+
+        console.log(bounceTimer);
+      }
+
+      function getData(userInput) {
+        var getDataDetails = new XMLHttpRequest();
+        getDataDetails.onreadystatechange = function () {
+          if (
+            getDataDetails.readyState === 4 &&
+            getDataDetails.status === 200
+          ) {
+            var allUsers = JSON.parse(getDataDetails.response);
+            displayUsers(allUsers);
+          }
+        };
+        getDataDetails.open(
+          "GET",
+          "https://jsonplaceholder.typicode.com/users?=q=" + userInput
+        );
+        getDataDetails.send();
+      }
+
+      function displayUsers(users) {
+        var userList = document.getElementById("userList");
+        userList.innerHTML = ""; // It Will Clear Previous Data
+
+        users.forEach((user) => {
+          var litstItem = document.createElement("li");
+          litstItem.textContent = `${user.name}- ${user.email}`;
+          userList.appendChild(litstItem);
+        });
+      }
+    </script>
+  </body>
+</html>

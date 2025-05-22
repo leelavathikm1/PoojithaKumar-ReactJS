@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- AJAX (Asychronous Javascript Anad XML) XMLHttpRequest-->
+    <button onclick="getData()">GET DATA</button>
+
+    <script>
+      function getData() {
+        var getDataFromServer = new XMLHttpRequest();
+        getDataFromServer.onreadystatechange = function () {
+          if (
+            getDataFromServer.readyState === 4 &&
+            getDataFromServer.status === 200
+          ) {
+            var getDetails = JSON.parse(getDataFromServer.response);
+            console.log(getDetails);
+          }
+        };
+        getDataFromServer.open(
+          "GET",
+          "https://jsonplaceholder.typicode.com/users"
+        );
+        getDataFromServer.send();
+      }
+    </script>
+  </body>
+</html>

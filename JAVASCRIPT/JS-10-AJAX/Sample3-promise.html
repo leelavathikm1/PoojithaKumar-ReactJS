@@ -33,18 +33,18 @@
         console.log(students);
       }
 
-      getDataFromServer();
-      // .then(function(){
-      //   displayData()
-      // })
-      // .catch(function(){
-      //   console.log("Error")
-      // })
+      getDataFromServer()
+        .then(function () {
+          displayData();
+        })
+        .catch(function () {
+          console.log("Error");
+        });
 
-      async function handleAsyncData() {
-        var response = await getDataFromServer();
-        displayData();
-      }
+      // async function handleAsyncData() {
+      //   var response = await getDataFromServer();
+      //   displayData();
+      // }
 
       handleAsyncData();
     </script>

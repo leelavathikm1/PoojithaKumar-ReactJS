@@ -1,0 +1,191 @@
+<!DOCTYPE html>Add commentMore actions
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Management</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .form-container {
+        max-width: 400px;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+      button {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      /* button:hover {
+        background-color: #0056b3;
+      } */
+      #book-list {
+        margin-top: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .disabledBtn {
+        background-color: gray;
+        color: white;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Book Management</h2>
+      <form id="book-form">
+        <div class="form-group">
+          <label for="title">Title :</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required
+            onkeyup="validateForm()"
+          />
+        </div>
+        <div class="form-group">
+          <label for="author">Author :</label>
+          <input
+            type="text "
+            id="author"
+            name="author"
+            required
+            onkeyup="validateForm()"
+          />
+        </div>
+        <div class="form-group">
+          <label for="isbn">ISBN:</label>
+          <input
+            type="text"
+            name="isbn"
+            id="isbn"
+            min="9"
+            required
+            onkeyup="validateForm()"
+          />
+        </div>
+        <button
+          type="button"
+          disabled
+          onclick="addBook()"
+          id="submitBtn"
+          class="disabledBtn"
+        >
+          Add Book
+        </button>
+      </form>
+    </div>
+    <div id="book-list">
+      <h3>Book List</h3>
+      <table id="book-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="book-tbody"></tbody>
+      </table>
+    </div>
+    <script>
+      var allBooks = JSON.parse(localStorage.getItem("allBooks")) || [];
+
+      function displayBooks() {
+        let tableBody = document.getElementById("book-tbody");
+        tableBody.innerHTML = "";
+        allBooks.forEach((book, index) => {
+          let row = tableBody.insertRow();
+          Object.values(book).forEach((val) => {
+            let cell = row.insertCell();
+            cell.textContent = val;
+          });
+          let actionsCell = row.insertCell();
+          actionsCell.innerHTML = `<button onclick ="editBook(${index})">Edit</button> 
+            <button onclick = "deleteBook(${index})">Delete</button>`;
+        });
+      }
+      function validateForm() {
+        let listofBooks = ["title", "author", "isbn"];
+
+        let isValid = listofBooks.every(
+          (listofBooks) =>
+            document.getElementById(listofBooks).value.trim() !== ""
+        );
+        document.getElementById("submitBtn").disabled = !isValid;
+        if (isValid) {
+          document
+            .getElementById("submitBtn")
+            .removeAttribute("class", "disabledBtn");
+        } else {
+          document
+            .getElementById("submitBtn")
+            .setAttribute("class", "disabledBtn");
+        }
+      }
+      function addBook() {
+        let book = {
+          title: document.getElementById("title").value,
+          author: document.getElementById("author").value,
+          isbn: document.getElementById("isbn").value,
+        };
+
+        allBooks.push(book);
+        localStorage.setItem("allBooks", JSON.stringify(allBooks));
+        displayBooks();
+        document.getElementById("book-form").reset();
+        document.querySelector("button").disabled = true;
+        validateForm();
+      }
+      function editBook(index) {
+        let book = allBooks[index];
+        title: document.getElementById("title").value = book.title;
+        author: document.getElementById("author").value = book.author;
+        isbn: document.getElementById("isbn").value = book.isbn;
+
+        allBooks.splice(index, 1);
+        localStorage.setItem("allBooks", JSON.stringify(allBooks));
+        displayBooks();
+        validateForm();
+      }
+
+      function deleteBook(index) {
+        allBooks.splice(index, 1);
+        localStorage.setItem("allBooks", JSON.stringify(allBooks));
+        displayBooks();
+      }
+
+      displayBooks();
+    </script>
+  </body>
+</html>
